@@ -1,0 +1,13 @@
+{
+  "name": "Food_guard_demo",
+  "version": "1.0.0",
+  "description": "Demo application using BLE and tensorflow.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Jacques Bach, Jonas Freiburghaus",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

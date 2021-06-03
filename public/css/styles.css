@@ -1,0 +1,17 @@
+canvas {
+    height: 300;
+}
+
+.card .card-image .card-title {
+    position: relative;
+    color: black;
+}
+
+.card .card-image {
+    height: 100%;
+}
+
+.container {
+    max-width: 1800px;
+    width: 100%;
+}
