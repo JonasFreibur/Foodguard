@@ -4,8 +4,6 @@ const handleSensorNotification = (event, eventName, pubSub, parser) => {
     let response = uint8View[0];
     let reference = uint8View[1];
 
-    console.log("Byte length: " + value.byteLength);
-
     if(response == RESPONSES.DATA && reference == REFERENCES.ACCDATA) {
         parser(value, pubSub, eventName);
     }

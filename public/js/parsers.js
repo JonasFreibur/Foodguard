@@ -9,10 +9,9 @@ const parseIMU6 = (value, pubSub, eventName) => {
         let yAcc = value.getFloat32(6 + i * 12 + 4, true);
         let zAcc = value.getFloat32(6 + i * 12 + 8, true);
 
-        // TODO : check is correct byte position
-        let xGyro = value.getFloat32(6 + i * 12 + 12, true);
-        let yGyro = value.getFloat32(6 + i * 12 + 16, true);
-        let zGyro = value.getFloat32(6 + i * 12 + 20, true);
+        let xGyro = value.getFloat32(6 + (i + numOfSamples) * 12, true);
+        let yGyro = value.getFloat32(6 + (i + numOfSamples) * 12 + 4, true);
+        let zGyro = value.getFloat32(6 + (i + numOfSamples) * 12 + 8, true);
 
         pubSub.publish(eventName, {
             timestamp: timestamp,

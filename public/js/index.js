@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let pubSub = new PubSub();
 
-        // Accelerometer
         pubSub.subscribe('imu6', (data) => {
             let timestamp = data.timestamp;
 
