@@ -5,7 +5,7 @@
 
 ## Introduction
 
-This project aims at predicting whether someone is eating too fast.
+This project aims at predicting if someone is eating too fast using the Suunto Movesense worn on the wrist.
 
 A Convolutional recurrent neural network implemented with Tensorflow for python is trained on the (Wireless Sensor Data Mining) WISDM dataset.
 
