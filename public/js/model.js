@@ -10,7 +10,6 @@ class Model{
     }
 
     async predict(tensor) {
-        // Should have shape (Batch size, 50 timestamps, 6 features)
         return await this.model.predict(tensor).data();
     }
 

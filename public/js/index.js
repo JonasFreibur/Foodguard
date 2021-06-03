@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let liveChartAccX = new LiveChart(ctxAccX, { min: -100, max: 100 });
     let liveChartAccY = new LiveChart(ctxAccY, { min: -100, max: 100 });
     let liveChartAccZ = new LiveChart(ctxAccZ, { min: -100, max: 100 });
-    let liveChartGyroX = new LiveChart(ctxGyroX, { min: -1000, max: 1000 });
-    let liveChartGyroY = new LiveChart(ctxGyroY, { min: -1000, max: 1000 });
-    let liveChartGyroZ = new LiveChart(ctxGyroZ, { min: -1000, max: 1000 });
+    let liveChartGyroX = new LiveChart(ctxGyroX, { min: -15, max: 15 });
+    let liveChartGyroY = new LiveChart(ctxGyroY, { min: -15, max: 15 });
+    let liveChartGyroZ = new LiveChart(ctxGyroZ, { min: -15, max: 15 });
     let liveChartPrediction = new LiveChart(ctxPred, { min: 0, max: 1 });
 
     const options = {
@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 .filter(key => key !== 'timestamp')
                 .map(key => buffer.map(data => data[key]));
 
-            let tensor = tf.tensor(X).reshape([-1, 50, 6]);
+            let tensor = tf.transpose(tf.tensor(X)).reshape([-1, 50, 6]);
             let prediction = await model.predict(tensor);
-            console.log(prediction);
+
             liveChartPrediction.addData(prediction);
         });
 

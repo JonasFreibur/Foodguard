@@ -3,6 +3,8 @@ const parseIMU6 = (value, pubSub, eventName) => {
 
     let numOfSamples = (value.byteLength - 6) / (3 * 4 * 2);
 
+    const RAD = Math.PI / 180;
+
     for (let i = 0; i < numOfSamples; i++)
     {
         let xAcc = value.getFloat32(6 + i * 12, true);
@@ -18,9 +20,9 @@ const parseIMU6 = (value, pubSub, eventName) => {
             xAcc: xAcc,
             yAcc: yAcc,
             zAcc: zAcc,
-            xGyro: xGyro,
-            yGyro: yGyro,
-            zGyro: zGyro
+            xGyro: xGyro * RAD,
+            yGyro: yGyro * RAD,
+            zGyro: zGyro * RAD
         });
     }
 };
