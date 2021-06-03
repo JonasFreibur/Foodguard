@@ -1,7 +1,8 @@
 class LiveChart {
 
-    constructor(ctx, delay=0, duration=10000, refresh=70) {
+    constructor(ctx, ticks, delay=10, duration=10000, refresh=70) {
         this.ctx = ctx;
+        this.ticks = ticks;
         this.delay = delay;
         this.duration = duration;
         this.refresh = refresh;
@@ -31,21 +32,22 @@ class LiveChart {
                 tooltips: {
                     enabled: false
                 },
+                hover: {
+                    mode: null
+                },
+                events: [],
                 responsive: true,
                 scales: {
                     xAxes: [{
                         type: 'realtime',
                         realtime: {
-                            duration: 10000,
-                            refresh: 70,
-                            delay: 0
+                            duration: this.duration,
+                            refresh: this.refresh,
+                            delay: this.delay
                         }
                     }],
                     yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'value'
-                        }
+                        ticks: this.ticks
                     }]
                 }
             }

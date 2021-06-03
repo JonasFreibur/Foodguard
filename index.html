@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@1.9.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.1/dist/tf.min.js"></script>
 
     <script src="js/BLE.js"></script>
     <script src="js/constants.js"></script>
@@ -27,18 +27,19 @@
     <script src="js/model.js"></script>
     <script src="js/pubsub.js"></script>
     <script src="js/parsers.js"></script>
+    <script src="js/buffer.js"></script>
 </head>
 
 <body>
     <div id="app" class="container">
         <header>
-            <h1>Food guard Demonstration</h1>
+            <h4>Food guard - Demo</h4>
         </header>
 
         <main>
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <h2 id="status">No connected device</h2>
+                    <p id="status">No connected device</p>
                 </div>
 
                 <div class="card col s12 m3 l3">
@@ -80,6 +81,13 @@
                     <div class="card-image">
                         <canvas id="chartGyroZ"></canvas>
                         <span class="card-title">Gyrometer Z</span>
+                    </div>
+                </div>
+
+                <div class="card col s12 m3 l3 offset-m4 offset-l4">
+                    <div class="card-image">
+                        <canvas id="chartPrediction"></canvas>
+                        <span class="card-title">Prediction</span>
                     </div>
                 </div>
 
